@@ -6,10 +6,10 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "nest build",
+    "build": "npx prisma generate && nest build",
     "vercel-build": "prisma generate && nest build",
     "format": "prettier --config ../.prettierrc --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start --entryFile backend/src/main",
+    "start": "node dist/main.js",
     "start:dev": "nest start --watch --entryFile backend/src/main",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
