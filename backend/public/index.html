@@ -4,37 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servidor Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Exo+2:wght@400&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            background-color: #f0f8ff;
-            color: #333;
+            min-height: 100vh;
+            background: radial-gradient(circle at 20% 20%, #0a0a0a, #000);
+            color: #fff;
+            font-family: 'Exo 2', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        /* Ícone de servidor */
+        .icon {
+            font-size: 5em;
+            color: #00bfff;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
         }
 
+        /* Grade animada de fundo [[9]] */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                transparent 0,
+                rgba(255,255,255,0.05) 1px,
+                transparent 2px
+            );
+            animation: moveGrid 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes moveGrid {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-25%, -25%); }
+        }
+
+        /* Container com efeito de vidro [[6]] */
         .container {
+            position: relative;
+            z-index: 1;
             text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            margin: 2rem;
+            transform: translateY(-10%);
         }
 
+        /* Tipografia futurista animada [[2]] */
         h1 {
-            font-size: 3em;
-            font-weight: bold;
-            color: #007bff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin: 0;
+            background: linear-gradient(45deg, #00f1ff, #0000ff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: hueRotate 5s infinite linear;
         }
 
+        @keyframes hueRotate {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        /* Efeito de pulso no status [[9]] */
         p {
-            font-size: 1.2em;
+            font-size: 1.5rem;
+            color: #00ff99;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        /* Elementos decorativos [[2]] */
+        .container::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: -100px;
+            right: -100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            bottom: -75px;
+            left: -75px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Servidor Online</h1>
+        <h1>SERVIDOR ONLINE</h1>
         <p>Seu backend está funcionando perfeitamente!</p>
+        <div class="icon">🖥️</div>
     </div>
+    
 </body>
 </html>
